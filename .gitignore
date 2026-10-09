@@ -7,4 +7,3 @@ __pycache__/
 # Raw and generated data — never commit
 data/*
 !data/README.md
-results/
