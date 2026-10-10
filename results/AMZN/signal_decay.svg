@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Signal correlation with the next mid change, by horizon">
+<style>
+.surface{fill:#fcfcfb}.title{fill:#0b0b0b;font-weight:600;font-size:14px}
+.sub,.legend{fill:#52514e;font-size:12px}.tick{fill:#898781;font-size:11px;font-variant-numeric:tabular-nums}
+.grid{stroke:#e1e0d9;stroke-width:1}.axis{stroke:#c3c2b7;stroke-width:1}.ref{stroke:#898781;stroke-width:1}
+.s1{stroke:#2a78d6}.s2{stroke:#eb6834}.f1{fill:#2a78d6}.f2{fill:#eb6834}
+.line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.dot{stroke:#fcfcfb;stroke-width:2}
+text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme: dark){
+.surface{fill:#1a1a19}.title{fill:#ffffff}.sub,.legend{fill:#c3c2b7}
+.grid{stroke:#2c2c2a}.axis{stroke:#383835}.dot{stroke:#1a1a19}
+.s1{stroke:#3987e5}.s2{stroke:#d95926}.f1{fill:#3987e5}.f2{fill:#d95926}}
+</style>
+<rect class="surface" width="640" height="360" rx="8"/>
+<text class="title" x="64" y="26">Signal correlation with the next mid change, by horizon</text>
+<text class="sub" x="64" y="44">Out of sample: fitted on the calibration window, mean correlation over test windows.</text>
+<line class="grid" x1="64" x2="616" y1="312.0" y2="312.0"/>
+<text class="tick" x="56" y="316.0" text-anchor="end">0</text>
+<line class="grid" x1="64" x2="616" y1="264.8" y2="264.8"/>
+<text class="tick" x="56" y="268.8" text-anchor="end">0.02</text>
+<line class="grid" x1="64" x2="616" y1="217.6" y2="217.6"/>
+<text class="tick" x="56" y="221.6" text-anchor="end">0.04</text>
+<line class="grid" x1="64" x2="616" y1="170.4" y2="170.4"/>
+<text class="tick" x="56" y="174.4" text-anchor="end">0.06</text>
+<line class="grid" x1="64" x2="616" y1="123.2" y2="123.2"/>
+<text class="tick" x="56" y="127.2" text-anchor="end">0.08</text>
+<line class="grid" x1="64" x2="616" y1="76.0" y2="76.0"/>
+<text class="tick" x="56" y="80.0" text-anchor="end">0.1</text>
+<line class="axis" x1="64" x2="616" y1="312" y2="312"/>
+<text class="tick" x="64.0" y="330" text-anchor="middle">1</text>
+<text class="tick" x="281.0" y="330" text-anchor="middle">5</text>
+<text class="tick" x="374.4" y="330" text-anchor="middle">10</text>
+<text class="tick" x="522.5" y="330" text-anchor="middle">30</text>
+<text class="tick" x="616.0" y="330" text-anchor="middle">60</text>
+<text class="sub" x="340.0" y="350" text-anchor="middle">horizon (s)</text>
+<line class="ref" x1="64" x2="616" y1="312.0" y2="312.0"/>
+<polyline class="line s2" points="64.0,151.9 281.0,143.4 374.4,121.1 522.5,180.7 616.0,286.9"/>
+<circle class="dot f2" cx="64.0" cy="151.9" r="7"><title>ofi: 0.0678 at horizon (s) 1</title></circle>
+<circle class="dot f2" cx="281.0" cy="143.4" r="7"><title>ofi: 0.0714 at horizon (s) 5</title></circle>
+<circle class="dot f2" cx="374.4" cy="121.1" r="7"><title>ofi: 0.0809 at horizon (s) 10</title></circle>
+<circle class="dot f2" cx="522.5" cy="180.7" r="7"><title>ofi: 0.0556 at horizon (s) 30</title></circle>
+<circle class="dot f2" cx="616.0" cy="286.9" r="7"><title>ofi: 0.0106 at horizon (s) 60</title></circle>
+<polyline class="line s1" points="64.0,179.1 281.0,166.9 374.4,195.4 522.5,297.4 616.0,302.1"/>
+<circle class="dot f1" cx="64.0" cy="179.1" r="5"><title>queue_imbalance: 0.0563 at horizon (s) 1</title></circle>
+<circle class="dot f1" cx="281.0" cy="166.9" r="5"><title>queue_imbalance: 0.0615 at horizon (s) 5</title></circle>
+<circle class="dot f1" cx="374.4" cy="195.4" r="5"><title>queue_imbalance: 0.0494 at horizon (s) 10</title></circle>
+<circle class="dot f1" cx="522.5" cy="297.4" r="5"><title>queue_imbalance: 0.00618 at horizon (s) 30</title></circle>
+<circle class="dot f1" cx="616.0" cy="302.1" r="5"><title>queue_imbalance: 0.0042 at horizon (s) 60</title></circle>
+<circle class="f1" cx="69" cy="60" r="5"/>
+<text class="legend" x="80" y="64">queue_imbalance</text>
+<circle class="f2" cx="202" cy="60" r="5"/>
+<text class="legend" x="213" y="64">ofi</text>
+</svg>
