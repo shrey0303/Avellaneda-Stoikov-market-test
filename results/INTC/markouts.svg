@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Markout after a fill, by horizon">
+<style>
+.surface{fill:#fcfcfb}.title{fill:#0b0b0b;font-weight:600;font-size:14px}
+.sub,.legend{fill:#52514e;font-size:12px}.tick{fill:#898781;font-size:11px;font-variant-numeric:tabular-nums}
+.grid{stroke:#e1e0d9;stroke-width:1}.axis{stroke:#c3c2b7;stroke-width:1}.ref{stroke:#898781;stroke-width:1}
+.s1{stroke:#2a78d6}.s2{stroke:#eb6834}.f1{fill:#2a78d6}.f2{fill:#eb6834}
+.line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.dot{stroke:#fcfcfb;stroke-width:2}
+text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme: dark){
+.surface{fill:#1a1a19}.title{fill:#ffffff}.sub,.legend{fill:#c3c2b7}
+.grid{stroke:#2c2c2a}.axis{stroke:#383835}.dot{stroke:#1a1a19}
+.s1{stroke:#3987e5}.s2{stroke:#d95926}.f1{fill:#3987e5}.f2{fill:#d95926}}
+</style>
+<rect class="surface" width="640" height="360" rx="8"/>
+<text class="title" x="64" y="26">Markout after a fill, by horizon</text>
+<text class="sub" x="64" y="44">Inventory strategy, 2-tick penalty, sticky quotes. Ticks per share; below 0 is adverse.</text>
+<line class="grid" x1="64" x2="616" y1="312.0" y2="312.0"/>
+<text class="tick" x="56" y="316.0" text-anchor="end">-2</text>
+<line class="grid" x1="64" x2="616" y1="253.0" y2="253.0"/>
+<text class="tick" x="56" y="257.0" text-anchor="end">-1.5</text>
+<line class="grid" x1="64" x2="616" y1="194.0" y2="194.0"/>
+<text class="tick" x="56" y="198.0" text-anchor="end">-1</text>
+<line class="grid" x1="64" x2="616" y1="135.0" y2="135.0"/>
+<text class="tick" x="56" y="139.0" text-anchor="end">-0.5</text>
+<line class="grid" x1="64" x2="616" y1="76.0" y2="76.0"/>
+<text class="tick" x="56" y="80.0" text-anchor="end">0</text>
+<line class="axis" x1="64" x2="616" y1="312" y2="312"/>
+<text class="tick" x="64.0" y="330" text-anchor="middle">1</text>
+<text class="tick" x="140.1" y="330" text-anchor="middle">5</text>
+<text class="tick" x="616.0" y="330" text-anchor="middle">30</text>
+<text class="sub" x="340.0" y="350" text-anchor="middle">seconds after the fill</text>
+<line class="ref" x1="64" x2="616" y1="76.0" y2="76.0"/>
+<polyline class="line s2" points="64.0,135.0 140.1,164.5 616.0,312.0"/>
+<circle class="dot f2" cx="64.0" cy="135.0" r="7"><title>optimistic: -0.5 at seconds after the fill 1</title></circle>
+<circle class="dot f2" cx="140.1" cy="164.5" r="7"><title>optimistic: -0.75 at seconds after the fill 5</title></circle>
+<circle class="dot f2" cx="616.0" cy="312.0" r="7"><title>optimistic: -2 at seconds after the fill 30</title></circle>
+<polyline class="line s1" points="64.0,135.0 140.1,164.5 616.0,312.0"/>
+<circle class="dot f1" cx="64.0" cy="135.0" r="5"><title>conservative: -0.5 at seconds after the fill 1</title></circle>
+<circle class="dot f1" cx="140.1" cy="164.5" r="5"><title>conservative: -0.75 at seconds after the fill 5</title></circle>
+<circle class="dot f1" cx="616.0" cy="312.0" r="5"><title>conservative: -2 at seconds after the fill 30</title></circle>
+<circle class="f1" cx="69" cy="60" r="5"/>
+<text class="legend" x="80" y="64">conservative</text>
+<circle class="f2" cx="181" cy="60" r="5"/>
+<text class="legend" x="192" y="64">optimistic</text>
+</svg>
