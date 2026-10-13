@@ -111,3 +111,27 @@ assigns it is not in the code at present, so `shadow` ends "UNEXPLAINED
 MISMATCHES" for four of the five stocks and exits non-zero. The match rates
 do not depend on the tags.
 
+## Status
+
+| Phase | What | Code | Done-criterion met |
+|---|---|---|---|
+| 1 | Parse LOBSTER message/orderbook files | `parser.py`, `lobster_format.py` | yes — all five files parse, format checked against the bundled readme |
+| 2 | Rebuild the book, compare after every message | `book.py`, `replay.py` | yes — zero divergences, five stocks, full day |
+| 3 | Queue tracker, conservative + optimistic fill rules | `queue_tracker.py` | yes (unit tests) |
+| 4 | Shadow validation against real orders' fills | `shadow.py` | partly — 98.2% predicted; 58 mismatches have no cause tag (see above) |
+| 5 | Calibrate σ, A, k | `calibration.py` | yes |
+| 6 | Strategy runs and model-world comparison, Q1–Q6 | `as_model.py`, `strategy.py`, `model_world.py`, `stats.py`, `study.py` | yes — Q1–Q3 answered; Q4 and Q5 not established |
+| 7 | Report, plots, limitations | `study.py`, `plots.py`, this file | yes |
+| 8 | Predictive signals and a signal-leaning strategy, Q7–Q8 | `signals.py`, `strategy.py`, `study.py` | yes — Q7 answered; Q8 is a null |
+| 9 | Real-data run and write-up | `results/`, this file | yes — run on 8 Oct 2026, re-run on 9 Oct 2026 with identical numbers |
+| 10 | Recorder, freeze and daily scoring for the track record, Q9 | `recorder.py`, `track.py` | yes (tests, and a 14-second live recording) |
+| 11 | Run the track record | — | no — needs weeks of recording, not started; nothing is recorded or frozen |
+
+156 unit tests pass. The folder is not yet a git repository.
+
+`make-synthetic` writes placeholder files in the LOBSTER format. Their order
+flow is random: **nothing measured on them says anything about markets.**
+They exist to prove the pipeline runs and to test it. Queue imbalance does
+predict the next move in these files, but only because a thin queue is
+mechanically the next to empty; that says nothing about real order flow.
+
