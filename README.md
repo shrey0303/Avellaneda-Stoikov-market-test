@@ -135,3 +135,56 @@ They exist to prove the pipeline runs and to test it. Queue imbalance does
 predict the next move in these files, but only because a thin queue is
 mechanically the next to empty; that says nothing about real order flow.
 
+## Setup
+
+```
+python -m venv .venv
+.venv\Scripts\python -m pip install -e ".[dev]"
+.venv\Scripts\python -m pytest -q
+```
+
+Python 3.10 or later. No third-party packages are needed to run the study;
+`pytest` is needed only for the tests.
+
+## Reproducing the study
+
+Download the level-10 samples from
+<https://data.lobsterdata.com/info/DataSamples.php> and unzip them into
+`data/lobster/` (any folder works; pass it as `--dir`). The data is not
+committed: `.gitignore` excludes `data/`.
+
+```
+python -m lobreplay check    --dir data/lobster --ticker AAPL AMZN GOOG INTC MSFT
+python -m lobreplay validate --dir data/lobster --ticker AAPL AMZN GOOG INTC MSFT
+python -m lobreplay shadow   --dir data/lobster --ticker AAPL AMZN GOOG INTC MSFT
+python -m lobreplay study    --dir data/lobster --ticker AAPL AMZN GOOG INTC MSFT --out results
+```
+
+Run them in that order. All four take about 15 minutes together.
+`docs/DATA_FORMAT.md` records how the format was checked against the readme
+that comes with the sample files.
+
+| Command | Phase | Passes when | On the real sample |
+|---|---|---|---|
+| `check` | 1 | every row parses and the two files line up | passes |
+| `validate` | 2 | zero divergences from the orderbook file | passes |
+| `shadow` | 4 | every mismatch between predicted and actual fills carries a cause tag | fails for AAPL, GOOG, INTC, MSFT on the 58 untagged mismatches |
+| `study` | 5–8 | calibration is usable and the strategies were traded | passes, no problems reported |
+
+`study` writes, for each ticker, `results/<TICKER>/report.md` (a three-line
+headline, then the answers to Q1–Q8 with tables, including replay profit
+three ways and shares traded per window), `results.json` (every number
+behind them) and five SVG plots. With more than one ticker it also writes
+`results/summary.md`, the cross-stock table for Q5. The same command with
+the same `--seed` gives the same numbers.
+
+To try the pipeline without real data:
+
+```
+python -m lobreplay make-synthetic --out data/synthetic --messages 400000
+python -m lobreplay shadow --dir data/synthetic --ticker FAKE
+python -m lobreplay study  --dir data/synthetic --ticker FAKE --out results
+```
+
+A 400,000-message day takes about three minutes for `study`.
+
