@@ -188,3 +188,86 @@ python -m lobreplay study  --dir data/synthetic --ticker FAKE --out results
 
 A 400,000-message day takes about three minutes for `study`.
 
+## Track record: one frozen signal, many later days
+
+The LOBSTER study scores each signal on one afternoon. One afternoon can look
+good by luck. The track record fits a signal once, freezes it, and scores it
+untouched on every later day. It uses Binance BTCUSDT recorded live, because
+that is the only free source of new days. It is Level 2 data, so only the
+prediction is scored; no strategy is traded on it.
+
+```
+python -m lobreplay record                # every day; one row a second into data/crypto/BTCUSDT/<UTC date>.csv
+python -m lobreplay freeze                # once, after about a week; writes frozen/BTCUSDT.json
+git add frozen/BTCUSDT.json && git commit -m "Freeze signal" && git push
+python -m lobreplay track                 # any time after; writes results/track/BTCUSDT/track.md
+```
+
+- `record` runs for 24 hours unless `--hours` says otherwise. Stop it with
+  Ctrl+C; rows already written are kept. A failed request loses that second
+  and nothing else.
+- `freeze` fits the three signals on every finished day on disk, picks the
+  one with the strongest correlation at the 5-second horizon, and writes it
+  with a SHA-256 fingerprint. It refuses to overwrite an existing file.
+- **Push the frozen file before the next day starts.** GitHub's push time is
+  the evidence that the signal existed before the days it is scored on.
+- `track` scores only days that start after the freeze. Fitting days, the
+  freeze day and today are listed and left out, and so is any day with less
+  than an hour of usable data. It refuses to run if the frozen file was
+  edited.
+- The pass mark is written into the frozen file: at least 20 scored days, the
+  95% interval of the mean daily correlation excludes zero on the frozen
+  side, and a sign test gives p < 0.05. Otherwise the report says "did not
+  hold up".
+- If the signal fails, that is the result. A different signal needs a new
+  frozen file and a new set of days.
+
+## How the study is run
+
+- **Split.** σ, A and k are calibrated on 09:31–12:45. The strategies trade
+  12:45–15:59. Calibration stops reading the file at 12:45. The first and last
+  minute of the session are left out.
+- **σ** comes from the mid price on a one-second grid, at the 60-second
+  horizon by default (`--sigma-horizon`). The report shows the variance-ratio
+  curve so that the choice can be judged. It is measured once, on the
+  morning, and held fixed all afternoon, as the paper assumes.
+- **A and k** come from probes: a hypothetical 100-share order every 5 seconds
+  on each side, 0–5 ticks behind the touch, left for up to 60 seconds.
+  λ(δ) = A·e^(−kδ) is fitted by Poisson maximum likelihood, separately under
+  each fill rule.
+- **Strategies.** Inventory (A–S reservation price) and symmetric (same
+  spread, centred on the mid, blind to inventory). Three risk-aversion
+  settings, chosen so that one lot of inventory moves the reservation price by
+  1, 2 or 4 ticks at the start of a window. One lot per side. Requote every
+  second and after each fill.
+- **Queue modes.** Sticky keeps an order whose price has not changed.
+  Requeue cancels and re-posts at every requote, which sends it to the back.
+  The difference is Q4.
+- **Sessions.** The afternoon is cut into 30-minute windows
+  (`--window-minutes`). Each starts flat. Every figure is a mean over windows
+  with a 95% bootstrap interval.
+- **Profit.** Every fill is booked at its own price. Shares still held when
+  a window closes have no trade price, so profit is reported three ways:
+  completed buy-and-sell pairs only (first in, first out); leftover valued
+  at the closing mid (the figure used in Q1–Q4 and Q8); and leftover traded
+  out against the real book at the close, level by level.
+- **Model world.** The same σ, A, k and γ in a simulator where the model's
+  assumptions hold exactly, with continuous quotes. This is what the replay is
+  compared against in Q1 and Q3.
+- **Both fill rules, always.** Each rule is carried through calibration and
+  trading on its own. Q6 lists every finding under both and marks any that
+  does not hold under both as not a conclusion.
+- **Signals (Q7).** Queue imbalance, order flow imbalance and trade imbalance
+  are sampled once a second. For each signal and each horizon (1, 5, 10, 30,
+  60 s) a straight line is fitted on the morning: mid change over the next
+  *h* seconds against the signal. That line is scored on the afternoon:
+  correlation, R² against predicting no change, and how often it calls the
+  direction. A morning sample is dropped if its target reaches past 12:45.
+  Intervals are bootstrapped over windows, because one-second samples at
+  longer horizons overlap.
+- **Signal strategy (Q8).** The signal with the strongest morning correlation
+  at the 5-second horizon is chosen. The signal strategy is the inventory
+  strategy with both quotes shifted by slope × signal. It is compared with
+  the plain inventory strategy on the same windows, under both fill rules.
+  With a slope of zero it reproduces the inventory strategy exactly (tested).
+
