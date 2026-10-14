@@ -124,8 +124,9 @@ do not depend on the tags.
 | 9 | Real-data run and write-up | `results/`, this file | yes — run on 8 Oct 2026, re-run on 9 Oct 2026 with identical numbers |
 | 10 | Recorder, freeze and daily scoring for the track record, Q9 | `recorder.py`, `track.py` | yes (tests, and a 14-second live recording) |
 | 11 | Run the track record | — | no — needs weeks of recording, not started; nothing is recorded or frozen |
+| 12 | The strategies on every new US trading day, real IEX data | `alpaca.py`, `live.py`, `live_report.py`, `.github/workflows/live.yml` | built and tested; runs daily once the Alpaca keys are added as repository secrets |
 
-156 unit tests pass. The folder is not yet a git repository.
+171 unit tests pass.
 
 `make-synthetic` writes placeholder files in the LOBSTER format. Their order
 flow is random: **nothing measured on them says anything about markets.**
@@ -185,6 +186,42 @@ python -m lobreplay study  --dir data/synthetic --ticker FAKE --out results
 ```
 
 A 400,000-message day takes about three minutes for `study`.
+
+## Live test: the strategies on every new trading day
+
+The LOBSTER study is one day from 2012. The live test trades the same two
+strategies (inventory and symmetric, one lot per side, 30-minute windows) on
+every US trading day from 1 October 2026 on, for AAPL, AMZN, GOOG, INTC and
+MSFT. Results: [`results/live/summary.md`](results/live/summary.md), one page
+per stock, updated after each close.
+
+The data is the IEX exchange's quotes and trades, tick by tick, from
+[Alpaca's free market-data plan](https://alpaca.markets/docs/market-data).
+Nothing is streamed: once a day is over, the `live` GitHub Actions workflow
+fetches it, trades it and commits the report (21:30 UTC, Monday to Friday).
+Any day it missed is caught up on the next run.
+
+```
+set ALPACA_API_KEY=...                    # a free Alpaca paper-trading key
+set ALPACA_API_SECRET=...
+python -m lobreplay live --since 2026-10-01   # trades every finished weekday not yet in results/live
+python -m lobreplay live --report-only        # rebuilds the reports from the days on disk
+```
+
+- **No look-ahead.** σ and the fill intensity (A, k) are fitted on up to five
+  earlier days, never on the day being traded. The first day of each stock
+  only calibrates.
+- **Fills.** IEX data has the best bid and ask, not the order-by-order book,
+  so the queue position the LOBSTER study tracks is unknown here. A quote is
+  filled by an IEX trade through its price (conservative) or at or through it
+  (optimistic), at most one lot per side per second. A quote never crosses
+  the IEX book.
+- **Scope.** IEX carries a few percent of US volume, so this is the strategy
+  quoting on IEX alone. P&L is before fees and rebates. Each figure across
+  days carries a 95% bootstrap interval over days.
+- **Setup on GitHub.** Add `ALPACA_API_KEY` and `ALPACA_API_SECRET` under
+  Settings → Secrets and variables → Actions, then run the `live` workflow
+  once from the Actions tab to backfill from 1 October.
 
 ## Track record: one frozen signal, many later days
 
