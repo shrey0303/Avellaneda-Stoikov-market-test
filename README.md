@@ -271,3 +271,68 @@ python -m lobreplay track                 # any time after; writes results/track
   the plain inventory strategy on the same windows, under both fill rules.
   With a slope of zero it reproduces the inventory strategy exactly (tested).
 
+## Limitations
+
+Say these before anyone asks.
+
+1. **No market impact.** A hypothetical order never changes the replay. That
+   is acceptable for one round lot and wrong for size.
+2. **No latency.** Quotes react instantly.
+3. **No fees or rebates.** P&L is gross.
+4. **Hidden liquidity is handled by assumption.** Hidden executions neither
+   shrink the queue ahead of us nor fill us.
+5. **One day, five stocks, 2012, US market.** Indicative at best.
+6. **Fill rules are bounds, not truth.** The conservative rule understates
+   fills and the optimistic rule overstates them.
+7. **An order the market moves through is filled late.** If a real order
+   arrives at a price that would have traded with ours, the replay fills us
+   only at the next real execution. The report counts how often a requote
+   finds our order in that state ("overtaken").
+8. **Tick rounding separates replay from model.** Replay quotes sit on the
+   one-cent grid and the model world's do not. In a stock that trades at a
+   one-tick spread, part of any gap in Q1 is this rounding and not adverse
+   selection.
+9. **The model itself** has a fixed horizon and constant parameters.
+   The signals are the textbook ones, fitted with a straight line on one
+   morning; one day cannot show that a signal is stable across days, and a
+   signal that predicts the price is not a profit once fees and latency are
+   counted.
+10. **The track record is a different market and a coarser feed.** It is
+    BTCUSDT on Binance at one snapshot a second, not NASDAQ order by order.
+    It shows whether the method holds up over time; it does not confirm the
+    LOBSTER numbers. Days are not fully independent, so the sign test is
+    generous.
+11. **Levels beyond the tenth are invisible.** The message file omits them,
+    so when one rises into view its size comes from the orderbook file and
+    the identity of its orders is a best guess. About 2% of messages bring
+    such a level in.
+12. **The probes and the strategy do not rest the same way.** A and k are
+    measured from orders left at a fixed price for up to 60 seconds, which
+    fill when the price comes to them. The strategy moves its quotes with
+    the mid every second, so it backs away as the price approaches. The
+    model's fill forecast therefore starts too high, and part of the gap in
+    result 2 is this and not adverse selection. It was not re-tuned after
+    seeing the results.
+13. **Few fills in the one-tick-spread stocks.** INTC and MSFT gave 2 to 7
+    fills per run over the afternoon. Their markouts and every strategy
+    comparison in those two stocks rest on that.
+14. **Volatility is measured once.** σ comes from the morning and is held
+    fixed, as the paper assumes. The afternoon was 24–32% calmer. In AAPL
+    this moves the quotes little (about 2 cents of the 31-cent spread comes
+    from the volatility term), but the model world also runs on the
+    morning's σ, and the effect of that on its forecast was not measured.
+15. **Leftover shares are closed against a frozen book.** The "closed at
+    real prices" profit uses the book as it stands at the instant the
+    window ends and does not model the price moving while we trade out.
+16. **`as_model.py` and the intensity fit were written for this
+    repository.** An earlier version of the plan spoke of reusing them from
+    a separate simulation project; no such code is here. What is checked
+    here: the formulas against the paper's equations, and the model world
+    against the paper's own table for its parameters (`tests/test_as_model.py`).
+
+## Library use
+
+Queue tracking is also a library API. For each message call
+`tracker.observe(msg, k)`, then `book.apply(msg)`, then `tracker.settle()`;
+post hypothetical orders between messages with `tracker.post(...)`.
+`session.MarketReplay` runs that loop for you.
