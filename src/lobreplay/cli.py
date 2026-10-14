@@ -1,4 +1,4 @@
-"""Command line: python -m lobreplay {make-synthetic,check,validate,shadow,study,record,freeze,track} ..."""
+"""Command line: python -m lobreplay {make-synthetic,check,validate,shadow,study,record,freeze,track,live} ..."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import recorder, track
+from . import alpaca, live, live_report, recorder, track
 from .calibration import CalibrationConfig
 from .parser import check_files, find_files
 from .replay import replay_files
@@ -14,6 +14,8 @@ from .shadow import shadow_validate
 from .strategy import StrategyConfig
 from .study import StudyConfig, render_summary, run_study, write_outputs
 from .synthetic import SyntheticConfig, generate
+
+LIVE_TICKERS = ("AAPL", "AMZN", "GOOG", "INTC", "MSFT")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -73,7 +75,17 @@ def main(argv: list[str] | None = None) -> int:
     trk.add_argument("--frozen", default="frozen/BTCUSDT.json")
     trk.add_argument("--out", default="results/track")
 
+    lv = sub.add_parser("live", help="Phase 12: fetch finished IEX days from Alpaca, trade them, update the live reports")
+    lv.add_argument("--ticker", nargs="+", default=list(LIVE_TICKERS))
+    lv.add_argument("--since", default=None, help="first day to trade, YYYY-MM-DD (default: the last finished day)")
+    lv.add_argument("--until", default=None, help="last day (default: the last day whose close is 20 minutes old)")
+    lv.add_argument("--out", default="results/live")
+    lv.add_argument("--report-only", action="store_true", help="rebuild the reports from the days on disk")
+
     args = ap.parse_args(argv)
+
+    if args.cmd == "live":
+        return _live(args)
 
     if args.cmd in ("record", "freeze", "track"):
         return _track(args)
@@ -131,6 +143,22 @@ def _track(args: argparse.Namespace) -> int:
     s = res["summary"]
     print(f"{s['days_right_sign']} of {s['days_scored']} scored days on the frozen side; verdict: {s['verdict']}")
     print(f"wrote {out / 'track.md'}")
+    return 0
+
+
+def _live(args: argparse.Namespace) -> int:
+    if not args.report_only:
+        until = args.until or live.last_finished_day()
+        days = live.weekdays(args.since or until, until)
+        try:
+            client = alpaca.from_env()
+            written = live.process(client, args.ticker, days, args.out, log=print)
+        except (OSError, ValueError) as e:
+            print(f"ERROR: {e}")
+            return 1
+        print(f"{len(written)} new stock-days, {client.requests} requests")
+    path = live_report.write_reports(args.out, args.ticker)
+    print(f"wrote {path}")
     return 0
 
 
