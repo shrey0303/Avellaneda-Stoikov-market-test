@@ -16,6 +16,7 @@ on:
 
 env:
   SINCE: "2026-10-01"
+  PYTHONUNBUFFERED: "1"   # show each stock-day in the log as it finishes
 
 permissions:
   contents: write
