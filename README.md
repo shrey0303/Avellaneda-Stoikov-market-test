@@ -11,9 +11,7 @@ compares the outcome with what the formula's own assumptions predict.
 One trading day (21 June 2012), five NASDAQ stocks, 2,110,860 order book
 messages. Calibrated and fitted on 09:31–12:45, tested on 12:45–15:59.
 Brackets are 95% bootstrap intervals over six 30-minute windows. Full tables
-are in `results/<TICKER>/report.md`, which `study` writes. `results/` is in
-`.gitignore`, so the chart below shows only after `study` has been run, or
-if `results/` is taken out of `.gitignore` and committed.
+are in `results/<TICKER>/report.md`, which `study` writes.
 
 ![Signal correlation by horizon, MSFT](results/MSFT/signal_decay.svg)
 
