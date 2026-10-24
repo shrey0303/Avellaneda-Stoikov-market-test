@@ -16,60 +16,65 @@ text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
 <text class="title" x="64" y="26">MSFT: cumulative P&amp;L on real IEX days</text>
 <text class="sub" x="64" y="44">dollars, conservative fills, 2 ticks risk aversion</text>
 <line class="grid" x1="64" x2="616" y1="312.0" y2="312.0"/>
-<text class="tick" x="56" y="316.0" text-anchor="end">-1,500,000</text>
-<line class="grid" x1="64" x2="616" y1="233.3" y2="233.3"/>
-<text class="tick" x="56" y="237.3" text-anchor="end">-1,000,000</text>
-<line class="grid" x1="64" x2="616" y1="154.7" y2="154.7"/>
-<text class="tick" x="56" y="158.7" text-anchor="end">-500,000</text>
+<text class="tick" x="56" y="316.0" text-anchor="end">-2,000,000</text>
+<line class="grid" x1="64" x2="616" y1="253.0" y2="253.0"/>
+<text class="tick" x="56" y="257.0" text-anchor="end">-1,500,000</text>
+<line class="grid" x1="64" x2="616" y1="194.0" y2="194.0"/>
+<text class="tick" x="56" y="198.0" text-anchor="end">-1,000,000</text>
+<line class="grid" x1="64" x2="616" y1="135.0" y2="135.0"/>
+<text class="tick" x="56" y="139.0" text-anchor="end">-500,000</text>
 <line class="grid" x1="64" x2="616" y1="76.0" y2="76.0"/>
 <text class="tick" x="56" y="80.0" text-anchor="end">0</text>
 <line class="axis" x1="64" x2="616" y1="312" y2="312"/>
 <text class="tick" x="64.0" y="330" text-anchor="middle">1</text>
-<text class="tick" x="106.5" y="330" text-anchor="middle">2</text>
-<text class="tick" x="148.9" y="330" text-anchor="middle">3</text>
-<text class="tick" x="191.4" y="330" text-anchor="middle">4</text>
-<text class="tick" x="233.8" y="330" text-anchor="middle">5</text>
-<text class="tick" x="276.3" y="330" text-anchor="middle">6</text>
-<text class="tick" x="318.8" y="330" text-anchor="middle">7</text>
-<text class="tick" x="361.2" y="330" text-anchor="middle">8</text>
-<text class="tick" x="403.7" y="330" text-anchor="middle">9</text>
-<text class="tick" x="446.2" y="330" text-anchor="middle">10</text>
-<text class="tick" x="488.6" y="330" text-anchor="middle">11</text>
-<text class="tick" x="531.1" y="330" text-anchor="middle">12</text>
-<text class="tick" x="573.5" y="330" text-anchor="middle">13</text>
-<text class="tick" x="616.0" y="330" text-anchor="middle">14</text>
+<text class="tick" x="103.4" y="330" text-anchor="middle">2</text>
+<text class="tick" x="142.9" y="330" text-anchor="middle">3</text>
+<text class="tick" x="182.3" y="330" text-anchor="middle">4</text>
+<text class="tick" x="221.7" y="330" text-anchor="middle">5</text>
+<text class="tick" x="261.1" y="330" text-anchor="middle">6</text>
+<text class="tick" x="300.6" y="330" text-anchor="middle">7</text>
+<text class="tick" x="340.0" y="330" text-anchor="middle">8</text>
+<text class="tick" x="379.4" y="330" text-anchor="middle">9</text>
+<text class="tick" x="418.9" y="330" text-anchor="middle">10</text>
+<text class="tick" x="458.3" y="330" text-anchor="middle">11</text>
+<text class="tick" x="497.7" y="330" text-anchor="middle">12</text>
+<text class="tick" x="537.1" y="330" text-anchor="middle">13</text>
+<text class="tick" x="576.6" y="330" text-anchor="middle">14</text>
+<text class="tick" x="616.0" y="330" text-anchor="middle">15</text>
 <text class="sub" x="340.0" y="350" text-anchor="middle">traded day</text>
 <line class="ref" x1="64" x2="616" y1="76.0" y2="76.0"/>
-<polyline class="line s2" points="64.0,86.7 106.5,93.1 148.9,100.3 191.4,102.5 233.8,116.3 276.3,126.7 318.8,143.5 361.2,158.9 403.7,181.2 446.2,233.1 488.6,251.5 531.1,275.1 573.5,281.8 616.0,295.6"/>
-<circle class="dot f2" cx="64.0" cy="86.7" r="7"><title>symmetric: -68,284 at traded day 1</title></circle>
-<circle class="dot f2" cx="106.5" cy="93.1" r="7"><title>symmetric: -108,478 at traded day 2</title></circle>
-<circle class="dot f2" cx="148.9" cy="100.3" r="7"><title>symmetric: -154,738 at traded day 3</title></circle>
-<circle class="dot f2" cx="191.4" cy="102.5" r="7"><title>symmetric: -168,718 at traded day 4</title></circle>
-<circle class="dot f2" cx="233.8" cy="116.3" r="7"><title>symmetric: -255,827 at traded day 5</title></circle>
-<circle class="dot f2" cx="276.3" cy="126.7" r="7"><title>symmetric: -322,432 at traded day 6</title></circle>
-<circle class="dot f2" cx="318.8" cy="143.5" r="7"><title>symmetric: -429,116 at traded day 7</title></circle>
-<circle class="dot f2" cx="361.2" cy="158.9" r="7"><title>symmetric: -526,626 at traded day 8</title></circle>
-<circle class="dot f2" cx="403.7" cy="181.2" r="7"><title>symmetric: -668,395 at traded day 9</title></circle>
-<circle class="dot f2" cx="446.2" cy="233.1" r="7"><title>symmetric: -998,626 at traded day 10</title></circle>
-<circle class="dot f2" cx="488.6" cy="251.5" r="7"><title>symmetric: -1,115,707 at traded day 11</title></circle>
-<circle class="dot f2" cx="531.1" cy="275.1" r="7"><title>symmetric: -1,265,762 at traded day 12</title></circle>
-<circle class="dot f2" cx="573.5" cy="281.8" r="7"><title>symmetric: -1,308,115 at traded day 13</title></circle>
-<circle class="dot f2" cx="616.0" cy="295.6" r="7"><title>symmetric: -1,395,477 at traded day 14</title></circle>
-<polyline class="line s1" points="64.0,86.3 106.5,98.8 148.9,107.0 191.4,109.7 233.8,123.7 276.3,135.6 318.8,153.5 361.2,164.4 403.7,184.8 446.2,232.7 488.6,250.3 531.1,268.7 573.5,275.6 616.0,286.9"/>
-<circle class="dot f1" cx="64.0" cy="86.3" r="5"><title>inventory: -65,275 at traded day 1</title></circle>
-<circle class="dot f1" cx="106.5" cy="98.8" r="5"><title>inventory: -144,671 at traded day 2</title></circle>
-<circle class="dot f1" cx="148.9" cy="107.0" r="5"><title>inventory: -197,032 at traded day 3</title></circle>
-<circle class="dot f1" cx="191.4" cy="109.7" r="5"><title>inventory: -213,974 at traded day 4</title></circle>
-<circle class="dot f1" cx="233.8" cy="123.7" r="5"><title>inventory: -303,455 at traded day 5</title></circle>
-<circle class="dot f1" cx="276.3" cy="135.6" r="5"><title>inventory: -378,637 at traded day 6</title></circle>
-<circle class="dot f1" cx="318.8" cy="153.5" r="5"><title>inventory: -492,285 at traded day 7</title></circle>
-<circle class="dot f1" cx="361.2" cy="164.4" r="5"><title>inventory: -561,881 at traded day 8</title></circle>
-<circle class="dot f1" cx="403.7" cy="184.8" r="5"><title>inventory: -691,535 at traded day 9</title></circle>
-<circle class="dot f1" cx="446.2" cy="232.7" r="5"><title>inventory: -996,252 at traded day 10</title></circle>
-<circle class="dot f1" cx="488.6" cy="250.3" r="5"><title>inventory: -1,108,043 at traded day 11</title></circle>
-<circle class="dot f1" cx="531.1" cy="268.7" r="5"><title>inventory: -1,224,598 at traded day 12</title></circle>
-<circle class="dot f1" cx="573.5" cy="275.6" r="5"><title>inventory: -1,268,862 at traded day 13</title></circle>
-<circle class="dot f1" cx="616.0" cy="286.9" r="5"><title>inventory: -1,340,554 at traded day 14</title></circle>
+<polyline class="line s2" points="64.0,84.1 103.4,88.8 142.9,94.3 182.3,95.9 221.7,106.2 261.1,114.0 300.6,126.6 340.0,138.1 379.4,154.9 418.9,193.8 458.3,207.7 497.7,225.4 537.1,230.4 576.6,240.7 616.0,259.8"/>
+<circle class="dot f2" cx="64.0" cy="84.1" r="7"><title>symmetric: -68,284 at traded day 1</title></circle>
+<circle class="dot f2" cx="103.4" cy="88.8" r="7"><title>symmetric: -108,478 at traded day 2</title></circle>
+<circle class="dot f2" cx="142.9" cy="94.3" r="7"><title>symmetric: -154,738 at traded day 3</title></circle>
+<circle class="dot f2" cx="182.3" cy="95.9" r="7"><title>symmetric: -168,718 at traded day 4</title></circle>
+<circle class="dot f2" cx="221.7" cy="106.2" r="7"><title>symmetric: -255,827 at traded day 5</title></circle>
+<circle class="dot f2" cx="261.1" cy="114.0" r="7"><title>symmetric: -322,432 at traded day 6</title></circle>
+<circle class="dot f2" cx="300.6" cy="126.6" r="7"><title>symmetric: -429,116 at traded day 7</title></circle>
+<circle class="dot f2" cx="340.0" cy="138.1" r="7"><title>symmetric: -526,626 at traded day 8</title></circle>
+<circle class="dot f2" cx="379.4" cy="154.9" r="7"><title>symmetric: -668,395 at traded day 9</title></circle>
+<circle class="dot f2" cx="418.9" cy="193.8" r="7"><title>symmetric: -998,626 at traded day 10</title></circle>
+<circle class="dot f2" cx="458.3" cy="207.7" r="7"><title>symmetric: -1,115,707 at traded day 11</title></circle>
+<circle class="dot f2" cx="497.7" cy="225.4" r="7"><title>symmetric: -1,265,762 at traded day 12</title></circle>
+<circle class="dot f2" cx="537.1" cy="230.4" r="7"><title>symmetric: -1,308,115 at traded day 13</title></circle>
+<circle class="dot f2" cx="576.6" cy="240.7" r="7"><title>symmetric: -1,395,477 at traded day 14</title></circle>
+<circle class="dot f2" cx="616.0" cy="259.8" r="7"><title>symmetric: -1,557,287 at traded day 15</title></circle>
+<polyline class="line s1" points="64.0,83.7 103.4,93.1 142.9,99.2 182.3,101.2 221.7,111.8 261.1,120.7 300.6,134.1 340.0,142.3 379.4,157.6 418.9,193.6 458.3,206.7 497.7,220.5 537.1,225.7 576.6,234.2 616.0,254.3"/>
+<circle class="dot f1" cx="64.0" cy="83.7" r="5"><title>inventory: -65,275 at traded day 1</title></circle>
+<circle class="dot f1" cx="103.4" cy="93.1" r="5"><title>inventory: -144,671 at traded day 2</title></circle>
+<circle class="dot f1" cx="142.9" cy="99.2" r="5"><title>inventory: -197,032 at traded day 3</title></circle>
+<circle class="dot f1" cx="182.3" cy="101.2" r="5"><title>inventory: -213,974 at traded day 4</title></circle>
+<circle class="dot f1" cx="221.7" cy="111.8" r="5"><title>inventory: -303,455 at traded day 5</title></circle>
+<circle class="dot f1" cx="261.1" cy="120.7" r="5"><title>inventory: -378,637 at traded day 6</title></circle>
+<circle class="dot f1" cx="300.6" cy="134.1" r="5"><title>inventory: -492,285 at traded day 7</title></circle>
+<circle class="dot f1" cx="340.0" cy="142.3" r="5"><title>inventory: -561,881 at traded day 8</title></circle>
+<circle class="dot f1" cx="379.4" cy="157.6" r="5"><title>inventory: -691,535 at traded day 9</title></circle>
+<circle class="dot f1" cx="418.9" cy="193.6" r="5"><title>inventory: -996,252 at traded day 10</title></circle>
+<circle class="dot f1" cx="458.3" cy="206.7" r="5"><title>inventory: -1,108,043 at traded day 11</title></circle>
+<circle class="dot f1" cx="497.7" cy="220.5" r="5"><title>inventory: -1,224,598 at traded day 12</title></circle>
+<circle class="dot f1" cx="537.1" cy="225.7" r="5"><title>inventory: -1,268,862 at traded day 13</title></circle>
+<circle class="dot f1" cx="576.6" cy="234.2" r="5"><title>inventory: -1,340,554 at traded day 14</title></circle>
+<circle class="dot f1" cx="616.0" cy="254.3" r="5"><title>inventory: -1,510,826 at traded day 15</title></circle>
 <circle class="f1" cx="69" cy="60" r="5"/>
 <text class="legend" x="80" y="64">inventory</text>
 <circle class="f2" cx="160" cy="60" r="5"/>
