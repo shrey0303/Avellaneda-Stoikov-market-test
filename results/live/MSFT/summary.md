@@ -1,6 +1,6 @@
 # MSFT: Avellaneda-Stoikov on real IEX data, day by day
 
-- Traded days: 24 (2026-10-02 to 2026-11-05)
+- Traded days: 25 (2026-10-02 to 2026-11-06)
 - Calibration-only days: 2; days without IEX data: 0
 
 - IEX only: Alpaca's free plan carries the IEX exchange's own quotes and trades, a few percent of US volume. The strategy is simulated as if it quoted on IEX alone.
@@ -12,8 +12,8 @@
 
 Inventory strategy, risk aversion 2 ticks per lot.
 
-- **conservative**: mean daily P&L -134540.40 [-169924.05, -102792.26] dollars (negative); 0 of 24 days positive; 4985 fills a day; 5 s markout -58.430 [-71.307, -48.067] ticks per fill (negative is against us).
-- **optimistic**: mean daily P&L -134998.91 [-170436.92, -103101.50] dollars (negative); 0 of 24 days positive; 5135 fills a day; 5 s markout -57.257 [-70.095, -47.017] ticks per fill (negative is against us).
+- **conservative**: mean daily P&L -135881.85 [-170598.16, -104538.70] dollars (negative); 0 of 25 days positive; 4945 fills a day; 5 s markout -62.444 [-77.505, -50.079] ticks per fill (negative is against us).
+- **optimistic**: mean daily P&L -136386.91 [-171252.81, -104957.43] dollars (negative); 0 of 25 days positive; 5093 fills a day; 5 s markout -61.190 [-76.043, -49.063] ticks per fill (negative is against us).
 
 ## Every setting
 
@@ -21,18 +21,18 @@ Mean over days, 95% bootstrap interval over days in brackets.
 
 | rule | strategy | risk aversion (ticks) | daily P&L ($) | verdict | positive days | fills/day | 5 s markout (ticks) |
 |---|---|---|---|---|---|---|---|
-| conservative | inventory | 1 | -136737.56 [-172708.24, -104635.67] | negative | 0/24 | 4902 | -58.609 [-71.930, -48.071] |
-| conservative | symmetric | 1 | -141573.41 [-181311.21, -108069.10] | negative | 0/24 | 4784 | -58.336 [-71.961, -47.625] |
-| conservative | inventory | 2 | -134540.40 [-169924.05, -102792.26] | negative | 0/24 | 4985 | -58.430 [-71.307, -48.067] |
-| conservative | symmetric | 2 | -141151.58 [-180916.61, -107605.69] | negative | 0/24 | 4753 | -58.565 [-72.235, -47.888] |
-| conservative | inventory | 4 | -129676.25 [-165415.09, -98948.38] | negative | 0/24 | 4993 | -59.201 [-72.126, -48.849] |
-| conservative | symmetric | 4 | -140340.42 [-180176.04, -106815.14] | negative | 0/24 | 4692 | -59.032 [-72.716, -48.297] |
-| optimistic | inventory | 1 | -137244.82 [-173204.60, -105047.39] | negative | 0/24 | 5055 | -57.325 [-70.523, -46.848] |
-| optimistic | symmetric | 1 | -142047.85 [-181926.71, -108513.95] | negative | 0/24 | 4930 | -57.038 [-70.174, -46.470] |
-| optimistic | inventory | 2 | -134998.91 [-170436.92, -103101.50] | negative | 0/24 | 5135 | -57.257 [-70.095, -47.017] |
-| optimistic | symmetric | 2 | -141489.57 [-181237.36, -107922.47] | negative | 0/24 | 4893 | -57.356 [-70.620, -46.775] |
-| optimistic | inventory | 4 | -130046.59 [-165826.77, -99128.55] | negative | 0/24 | 5145 | -58.029 [-70.831, -47.904] |
-| optimistic | symmetric | 4 | -140764.38 [-180394.63, -107300.55] | negative | 0/24 | 4824 | -57.876 [-71.405, -47.187] |
+| conservative | inventory | 1 | -137508.03 [-172740.15, -106240.19] | negative | 0/25 | 4854 | -62.622 [-78.073, -50.122] |
+| conservative | symmetric | 1 | -141842.29 [-179755.61, -108503.54] | negative | 0/25 | 4732 | -62.291 [-77.637, -50.001] |
+| conservative | inventory | 2 | -135881.85 [-170598.16, -104538.70] | negative | 0/25 | 4945 | -62.444 [-77.505, -50.079] |
+| conservative | symmetric | 2 | -141417.63 [-179451.42, -108084.64] | negative | 0/25 | 4702 | -62.546 [-77.944, -50.140] |
+| conservative | inventory | 4 | -131680.18 [-166531.75, -100944.87] | negative | 0/25 | 4959 | -63.159 [-78.234, -50.798] |
+| conservative | symmetric | 4 | -140614.16 [-178663.73, -107466.99] | negative | 0/25 | 4641 | -63.054 [-78.624, -50.537] |
+| optimistic | inventory | 1 | -138035.92 [-173296.67, -106456.99] | negative | 0/25 | 5007 | -61.213 [-76.390, -49.000] |
+| optimistic | symmetric | 1 | -142231.07 [-180231.89, -108815.34] | negative | 0/25 | 4878 | -60.815 [-75.648, -48.885] |
+| optimistic | inventory | 2 | -136386.91 [-171252.81, -104957.43] | negative | 0/25 | 5093 | -61.190 [-76.043, -49.063] |
+| optimistic | symmetric | 2 | -141696.62 [-179907.30, -108356.90] | negative | 0/25 | 4841 | -61.162 [-76.098, -49.157] |
+| optimistic | inventory | 4 | -132108.74 [-167006.51, -101313.04] | negative | 0/25 | 5111 | -61.902 [-76.800, -49.849] |
+| optimistic | symmetric | 4 | -140986.17 [-178988.07, -107806.81] | negative | 0/25 | 4773 | -61.780 [-76.974, -49.569] |
 
 ## Does inventory control help?
 
@@ -40,12 +40,12 @@ Daily P&L of the inventory strategy minus the symmetric one, paired by day.
 
 | rule | risk aversion (ticks) | inventory minus symmetric ($/day) | verdict |
 |---|---|---|---|
-| conservative | 1 | 4835.85 [-1808.32, 12538.67] | not established |
-| conservative | 2 | 6611.17 [-2419.67, 16860.16] | not established |
-| conservative | 4 | 10664.18 [504.87, 22881.98] | positive |
-| optimistic | 1 | 4803.03 [-2332.68, 12691.53] | not established |
-| optimistic | 2 | 6490.66 [-2665.05, 16754.08] | not established |
-| optimistic | 4 | 10717.79 [342.28, 22980.22] | positive |
+| conservative | 1 | 4334.26 [-2751.14, 11413.32] | not established |
+| conservative | 2 | 5535.78 [-4056.69, 15336.14] | not established |
+| conservative | 4 | 8933.98 [-1848.34, 20765.79] | not established |
+| optimistic | 1 | 4195.15 [-3439.72, 11608.43] | not established |
+| optimistic | 2 | 5309.71 [-4586.88, 15287.71] | not established |
+| optimistic | 4 | 8877.44 [-2189.87, 20928.55] | not established |
 
 ## Day by day
 
@@ -81,3 +81,4 @@ Inventory strategy at 2 ticks.
 | 2026-11-03 | 0.17789 | 0.1685 / 4.6 | -289788.58 | -290776.71 | 4728 | -167.134 | 100% quoted, 21070 trades |
 | 2026-11-04 | 0.25177 | 0.1814 / 4.9 | -170576.85 | -171138.72 | 7509 | -67.500 | 100% quoted, 36246 trades |
 | 2026-11-05 | 0.25532 | 0.1943 / 4.5 | -317181.76 | -318012.39 | 8369 | -108.458 | 100% quoted, 35897 trades |
+| 2026-11-06 | 0.27693 | 0.2128 / 5.1 | -168076.57 | -169699.00 | 3973 | -158.776 | 100% quoted, 20695 trades |
