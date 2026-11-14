@@ -1,6 +1,6 @@
 # AAPL: Avellaneda-Stoikov on real IEX data, day by day
 
-- Traded days: 29 (2026-10-02 to 2026-11-12)
+- Traded days: 30 (2026-10-02 to 2026-11-13)
 - Calibration-only days: 2; days without IEX data: 0
 
 - IEX only: Alpaca's free plan carries the IEX exchange's own quotes and trades, a few percent of US volume. The strategy is simulated as if it quoted on IEX alone.
@@ -12,8 +12,8 @@
 
 Inventory strategy, risk aversion 2 ticks per lot.
 
-- **conservative**: mean daily P&L -44195.13 [-56748.45, -33079.12] dollars (negative); 0 of 29 days positive; 5584 fills a day; 5 s markout -23.696 [-26.672, -20.898] ticks per fill (negative is against us).
-- **optimistic**: mean daily P&L -44874.13 [-57555.96, -33625.92] dollars (negative); 0 of 29 days positive; 6262 fills a day; 5 s markout -21.821 [-24.716, -19.096] ticks per fill (negative is against us).
+- **conservative**: mean daily P&L -43725.17 [-55384.84, -33290.95] dollars (negative); 0 of 30 days positive; 5549 fills a day; 5 s markout -23.684 [-26.693, -21.119] ticks per fill (negative is against us).
+- **optimistic**: mean daily P&L -44419.28 [-56219.98, -33966.78] dollars (negative); 0 of 30 days positive; 6226 fills a day; 5 s markout -21.806 [-24.729, -19.306] ticks per fill (negative is against us).
 
 ## Every setting
 
@@ -21,18 +21,18 @@ Mean over days, 95% bootstrap interval over days in brackets.
 
 | rule | strategy | risk aversion (ticks) | daily P&L ($) | verdict | positive days | fills/day | 5 s markout (ticks) |
 |---|---|---|---|---|---|---|---|
-| conservative | inventory | 1 | -45221.03 [-58011.96, -33997.42] | negative | 0/29 | 5546 | -23.810 [-26.851, -20.972] |
-| conservative | symmetric | 1 | -39131.13 [-48370.82, -31001.77] | negative | 0/29 | 5210 | -24.228 [-27.396, -21.285] |
-| conservative | inventory | 2 | -44195.13 [-56748.45, -33079.12] | negative | 0/29 | 5584 | -23.696 [-26.672, -20.898] |
-| conservative | symmetric | 2 | -38792.24 [-47972.87, -30591.85] | negative | 0/29 | 5094 | -24.626 [-27.801, -21.686] |
-| conservative | inventory | 4 | -42298.68 [-54161.51, -31529.57] | negative | 0/29 | 5504 | -23.808 [-26.795, -21.027] |
-| conservative | symmetric | 4 | -37727.31 [-46607.16, -29851.71] | negative | 0/29 | 4876 | -25.376 [-28.577, -22.397] |
-| optimistic | inventory | 1 | -45815.61 [-58622.76, -34507.32] | negative | 0/29 | 6252 | -21.886 [-24.847, -19.141] |
-| optimistic | symmetric | 1 | -39946.96 [-49233.13, -31500.92] | negative | 1/29 | 5900 | -22.159 [-25.175, -19.382] |
-| optimistic | inventory | 2 | -44874.13 [-57555.96, -33625.92] | negative | 0/29 | 6262 | -21.821 [-24.716, -19.096] |
-| optimistic | symmetric | 2 | -39503.61 [-48734.04, -31175.52] | negative | 1/29 | 5737 | -22.620 [-25.664, -19.829] |
-| optimistic | inventory | 4 | -43018.35 [-54999.95, -32291.35] | negative | 0/29 | 6129 | -22.028 [-24.894, -19.323] |
-| optimistic | symmetric | 4 | -38582.92 [-47777.37, -30442.05] | negative | 0/29 | 5449 | -23.423 [-26.509, -20.550] |
+| conservative | inventory | 1 | -44753.69 [-56439.44, -34048.69] | negative | 0/30 | 5507 | -23.812 [-26.884, -21.216] |
+| conservative | symmetric | 1 | -38910.89 [-47552.66, -31002.05] | negative | 0/30 | 5170 | -24.254 [-27.340, -21.541] |
+| conservative | inventory | 2 | -43725.17 [-55384.84, -33290.95] | negative | 0/30 | 5549 | -23.684 [-26.693, -21.119] |
+| conservative | symmetric | 2 | -38577.96 [-47241.33, -30709.38] | negative | 0/30 | 5055 | -24.653 [-27.757, -21.929] |
+| conservative | inventory | 4 | -41860.90 [-53023.56, -31884.41] | negative | 0/30 | 5473 | -23.782 [-26.754, -21.265] |
+| conservative | symmetric | 4 | -37532.50 [-45858.22, -29920.55] | negative | 0/30 | 4840 | -25.396 [-28.530, -22.667] |
+| optimistic | inventory | 1 | -45365.69 [-57096.69, -34666.10] | negative | 0/30 | 6212 | -21.875 [-24.858, -19.335] |
+| optimistic | symmetric | 1 | -39767.57 [-48501.94, -31664.77] | negative | 1/30 | 5855 | -22.186 [-25.231, -19.622] |
+| optimistic | inventory | 2 | -44419.28 [-56219.98, -33966.78] | negative | 0/30 | 6226 | -21.806 [-24.729, -19.306] |
+| optimistic | symmetric | 2 | -39343.81 [-48112.60, -31334.43] | negative | 1/30 | 5694 | -22.641 [-25.688, -20.048] |
+| optimistic | inventory | 4 | -42591.51 [-53851.66, -32524.52] | negative | 0/30 | 6099 | -22.002 [-24.922, -19.601] |
+| optimistic | symmetric | 4 | -38408.17 [-47014.57, -30598.43] | negative | 0/30 | 5409 | -23.437 [-26.460, -20.775] |
 
 ## Does inventory control help?
 
@@ -40,12 +40,12 @@ Daily P&L of the inventory strategy minus the symmetric one, paired by day.
 
 | rule | risk aversion (ticks) | inventory minus symmetric ($/day) | verdict |
 |---|---|---|---|
-| conservative | 1 | -6089.91 [-15413.51, 614.38] | not established |
-| conservative | 2 | -5402.89 [-14210.66, 1031.07] | not established |
-| conservative | 4 | -4571.37 [-12602.44, 1400.67] | not established |
-| optimistic | 1 | -5868.65 [-15903.91, 1171.82] | not established |
-| optimistic | 2 | -5370.52 [-14764.69, 1540.98] | not established |
-| optimistic | 4 | -4435.43 [-12929.51, 1779.48] | not established |
+| conservative | 1 | -5842.79 [-15044.04, 515.28] | not established |
+| conservative | 2 | -5147.21 [-13811.42, 911.90] | not established |
+| conservative | 4 | -4328.40 [-12437.71, 1280.82] | not established |
+| optimistic | 1 | -5598.12 [-15383.84, 1062.16] | not established |
+| optimistic | 2 | -5075.47 [-14415.48, 1393.40] | not established |
+| optimistic | 4 | -4183.34 [-12663.29, 1698.01] | not established |
 
 ## Day by day
 
@@ -86,3 +86,4 @@ Inventory strategy at 2 ticks.
 | 2026-11-10 | 0.08039 | 0.2600 / 11.1 | -45489.20 | -45651.85 | 2960 | -40.985 | 100% quoted, 25690 trades |
 | 2026-11-11 | 0.07687 | 0.2518 / 13.3 | -36133.44 | -36476.83 | 4802 | -24.631 | 100% quoted, 21401 trades |
 | 2026-11-12 | 0.06857 | 0.2230 / 13.5 | -25056.93 | -25747.52 | 2996 | -27.622 | 100% quoted, 26600 trades |
+| 2026-11-13 | 0.06529 | 0.1821 / 15.8 | -30096.45 | -31228.66 | 4534 | -23.331 | 100% quoted, 24593 trades |
