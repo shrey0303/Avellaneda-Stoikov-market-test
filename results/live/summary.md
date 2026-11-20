@@ -11,8 +11,8 @@ Inventory strategy at 2 ticks of risk aversion. Mean over days with a 95% bootst
 
 | stock | days traded | daily P&L, conservative ($) | daily P&L, optimistic ($) | positive days (cons.) | 5 s markout (ticks, cons.) | inventory minus symmetric (cons., $/day) |
 |---|---|---|---|---|---|---|
-| [AAPL](AAPL/summary.md) | 33 | -42218.55 [-52224.16, -32336.49] (negative) | -42914.86 [-52935.68, -32929.41] (negative) | 0/33 | -23.605 [-26.293, -21.158] | -4906.34 [-12658.95, 683.48] (not established) |
-| [AMZN](AMZN/summary.md) | 33 | -38302.93 [-49040.35, -29706.15] (negative) | -38694.88 [-49525.74, -30057.42] (negative) | 0/33 | -19.867 [-23.726, -16.840] | -1322.24 [-10290.84, 7827.37] (not established) |
-| [GOOG](GOOG/summary.md) | 33 | -34455.56 [-44540.98, -26259.97] (negative) | -34779.95 [-44932.11, -26602.31] (negative) | 0/33 | -28.054 [-31.496, -24.726] | 3979.75 [-3838.66, 13693.89] (not established) |
-| [INTC](INTC/summary.md) | 33 | -8536.43 [-11576.10, -5901.32] (negative) | -8586.79 [-11759.17, -5830.18] (negative) | 0/33 | -8.225 [-9.998, -6.627] | 188.61 [-2195.57, 2316.80] (not established) |
-| [MSFT](MSFT/summary.md) | 33 | -120783.45 [-147810.08, -96209.20] (negative) | -121370.16 [-148542.50, -96627.30] (negative) | 0/33 | -59.473 [-70.234, -49.946] | 5308.75 [-3122.25, 14202.02] (not established) |
+| [AAPL](AAPL/summary.md) | 34 | -42102.47 [-52526.52, -32475.38] (negative) | -42757.28 [-53296.70, -33035.78] (negative) | 0/34 | -23.535 [-26.058, -21.026] | -4232.27 [-12014.50, 1267.05] (not established) |
+| [AMZN](AMZN/summary.md) | 34 | -39533.73 [-49878.28, -30507.48] (negative) | -39904.15 [-50298.90, -30816.55] (negative) | 0/34 | -19.978 [-23.860, -16.968] | 1639.71 [-8180.97, 12222.29] (not established) |
+| [GOOG](GOOG/summary.md) | 34 | -36964.02 [-47571.91, -27571.87] (negative) | -37289.63 [-47926.72, -27865.59] (negative) | 0/34 | -28.312 [-31.762, -24.975] | 3594.92 [-3771.80, 13588.73] (not established) |
+| [INTC](INTC/summary.md) | 34 | -8616.07 [-11585.07, -5982.14] (negative) | -8667.24 [-11789.73, -5938.66] (negative) | 0/34 | -8.173 [-9.861, -6.610] | 486.83 [-1870.20, 2634.95] (not established) |
+| [MSFT](MSFT/summary.md) | 34 | -120549.56 [-147457.64, -94979.83] (negative) | -121127.03 [-148289.33, -95457.95] (negative) | 0/34 | -59.640 [-70.470, -50.362] | 4197.42 [-3957.89, 12831.82] (not established) |
