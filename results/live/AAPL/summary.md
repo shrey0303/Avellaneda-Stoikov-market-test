@@ -1,7 +1,7 @@
 # AAPL: Avellaneda-Stoikov on real IEX data, day by day
 
 - Traded days: 38 (2026-10-02 to 2026-11-25)
-- Calibration-only days: 2; days without IEX data: 0
+- Calibration-only days: 2; days without IEX data: 1
 
 - IEX only: Alpaca's free plan carries the IEX exchange's own quotes and trades, a few percent of US volume. The strategy is simulated as if it quoted on IEX alone.
 - No queue position: IEX data has the best bid and ask, not the order-by-order book. The conservative rule fills a quote only on a trade through its price; the optimistic rule also on a trade at it. The truth lies between the two.
@@ -95,3 +95,4 @@ Inventory strategy at 2 ticks.
 | 2026-11-23 | 0.05030 | 0.2129 / 22.8 | -21931.94 | -21760.85 | 4784 | -16.504 | 100% quoted, 28121 trades |
 | 2026-11-24 | 0.04895 | 0.2209 / 22.3 | -84137.38 | -83106.03 | 6456 | -35.154 | 100% quoted, 23920 trades |
 | 2026-11-25 | 0.06010 | 0.2193 / 20.6 | -94985.38 | -94742.01 | 6924 | -30.650 | 100% quoted, 36052 trades |
+| 2026-11-26 | no IEX data |  |  |  |  |  |  |
